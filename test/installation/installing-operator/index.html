@@ -29,7 +29,7 @@
 
     
   </head>
-  <body data-url="/getting-started/installing-operator/">
+  <body data-url="/installation/installing-operator/">
     
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
   
@@ -88,38 +88,72 @@
       <hr>
 
       <b>Navigation</b>
-    <li data-nav-id="/getting-started/" class="dd-item parent haschildren
+    <li data-nav-id="/overview/" class="dd-item haschildren
         ">
       <div>
-      <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/">Getting Started</a>
-            <i class="fas fa-angle-down fa-lg category-icon"></i>
+      <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/overview/">Overview</a><i class="fas fa-angle-right fa-lg category-icon"></i>
 
       </div>
         <ul>
-      <li data-nav-id="/getting-started/prerequisites/" class="dd-item">
+      <li data-nav-id="/overview/overview/" class="dd-item">
         <div>
-          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/prerequisites/">
+          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/overview/overview/">
+            Overview
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/prereq/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/prereq/">Prerequiste</a><i class="fas fa-angle-right fa-lg category-icon"></i>
+
+      </div>
+        <ul>
+      <li data-nav-id="/prereq/prerequisites/" class="dd-item">
+        <div>
+          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/prereq/prerequisites/">
             Prerequisites
           </a>
         </div>
     </li>
-      <li data-nav-id="/getting-started/installing-ansible/" class="dd-item">
+        </ul>
+    </li>
+    <li data-nav-id="/installation/" class="dd-item parent haschildren
+        ">
+      <div>
+      <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/">Installation</a>
+            <i class="fas fa-angle-down fa-lg category-icon"></i>
+
+      </div>
+        <ul>
+      <li data-nav-id="/installation/installing-ansible/" class="dd-item">
         <div>
-          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/installing-ansible/">
+          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/installing-ansible/">
             Installing Ansible
           </a>
         </div>
     </li>
-      <li data-nav-id="/getting-started/installing-operator/" class="dd-item active">
+      <li data-nav-id="/installation/installing-operator/" class="dd-item active">
         <div>
-          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/installing-operator/">
+          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/installing-operator/">
             Installing PostgreSQL Operator
           </a>
         </div>
     </li>
-      <li data-nav-id="/getting-started/uninstalling-operator/" class="dd-item">
+        </ul>
+    </li>
+    <li data-nav-id="/uninstall/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/uninstall/">Uninstall</a><i class="fas fa-angle-right fa-lg category-icon"></i>
+
+      </div>
+        <ul>
+      <li data-nav-id="/uninstall/uninstalling-operator/" class="dd-item">
         <div>
-          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/uninstalling-operator/">
+          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/uninstall/uninstalling-operator/">
             Uninstalling PostgreSQL Operator
           </a>
         </div>
@@ -144,13 +178,17 @@
       <center>Navigation :
         <select onchange="javascript:location.href = this.value;">
           
-    <option value="/getting-started/" >
-   Getting Started</option> 
-      <option value="/getting-started/prerequisites/" >- Prerequisites</option>
-      <option value="/getting-started/installing-ansible/" >- Installing Ansible</option>
-      <option value="/getting-started/installing-operator/"  selected>- Installing PostgreSQL Operator</option>
-      <option value="/getting-started/uninstalling-operator/" >- Uninstalling PostgreSQL Operator</option>
+    <option value="/overview/" >
+   Overview</option>
+    <option value="/prereq/" >
+   Prerequiste</option>
+    <option value="/installation/" >
+   Installation</option> 
+      <option value="/installation/installing-ansible/" >- Installing Ansible</option>
+      <option value="/installation/installing-operator/"  selected>- Installing PostgreSQL Operator</option>
   
+    <option value="/uninstall/" >
+   Uninstall</option>
 
 
 
@@ -169,7 +207,7 @@
             <i class="fa fa-info-circle"></i>
             
           </a>
-          <a class="github-link" href="https://github.com/CrunchyData/postgres-operator-playbooks/edit/master/hugo/content/getting-started/installing-operator.md" target="blank">
+          <a class="github-link" href="https://github.com/CrunchyData/postgres-operator-playbooks/edit/master/hugo/content/installation/installing-operator.md" target="blank">
             <i class="fa fa-code-fork"></i>
             
           </a>
@@ -189,7 +227,7 @@
 
 
 
- <a href='https://crunchydata.github.io/postgres-operator-playbooks/test/'>Introduction</a> > <a href='https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/'>Getting Started</a> > Installing PostgreSQL Operator
+ <a href='https://crunchydata.github.io/postgres-operator-playbooks/test/'>Introduction</a> > <a href='https://crunchydata.github.io/postgres-operator-playbooks/test/installation/'>Installation</a> > Installing PostgreSQL Operator
 
  
 
@@ -224,7 +262,7 @@ the PostgreSQL Operator:</p>
 
 <p>The following command should be run from the directory where the
 <code>postgres-operator-playbooks</code> project is located:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ansible-playbook -i /path/to/inventory main.yml --tags<span style="color:#f92672">=</span>install --ask-become-password</code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ansible-playbook -i /path/to/inventory main.yml --tags<span style="color:#f92672">=</span>install --ask-become-pass</code></pre></div>
 <h2 id="installing-on-macos">Installing on MacOS</h2>
 
 <p>On a MacOS host with Ansible installed we can run the following command to install
@@ -232,7 +270,7 @@ the PostgreSQL Operator.</p>
 
 <p>The following command should be run from the directory where the
 <code>postgres-operator-playbooks</code> project is located:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ansible-playbook -i /path/to/inventory main.yml --tags<span style="color:#f92672">=</span>install --ask-become-password</code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ansible-playbook -i /path/to/inventory main.yml --tags<span style="color:#f92672">=</span>install --ask-become-pass</code></pre></div>
 <h2 id="installing-on-windows">Installing on Windows</h2>
 
 <p>On a Windows host with a Cygwin terminal we can run the following commands to install
@@ -306,8 +344,8 @@ PostgreSQL Operator has been installed successfully.</p>
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/installing-ansible/" title="Installing Ansible"> <i class="fa fa-chevron-left"></i><label>Installing Ansible</label></a>
-    <a class="nav nav-next" href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/uninstalling-operator/" title="Uninstalling PostgreSQL Operator" style="margin-right: 0px;"><label>Uninstalling PostgreSQL Operator</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/installing-ansible/" title="Installing Ansible"> <i class="fa fa-chevron-left"></i><label>Installing Ansible</label></a>
+    <a class="nav nav-next" href="https://crunchydata.github.io/postgres-operator-playbooks/test/uninstall/" title="Uninstall" style="margin-right: 0px;"><label>Uninstall</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>

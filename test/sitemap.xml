@@ -7,23 +7,39 @@
   </url>
   
   <url>
-    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/</loc>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/overview/overview/</loc>
   </url>
   
   <url>
-    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/prerequisites/</loc>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/overview/</loc>
   </url>
   
   <url>
-    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/installing-ansible/</loc>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/prereq/</loc>
   </url>
   
   <url>
-    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/installing-operator/</loc>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/installation/</loc>
   </url>
   
   <url>
-    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/uninstalling-operator/</loc>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/uninstall/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/prereq/prerequisites/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/installation/installing-ansible/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/installation/installing-operator/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/test/uninstall/uninstalling-operator/</loc>
   </url>
   
   <url>

@@ -29,7 +29,7 @@
 
     
   </head>
-  <body data-url="/getting-started/prerequisites/">
+  <body data-url="/prereq/prerequisites/">
     
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
   
@@ -88,38 +88,72 @@
       <hr>
 
       <b>Navigation</b>
-    <li data-nav-id="/getting-started/" class="dd-item parent haschildren
+    <li data-nav-id="/overview/" class="dd-item haschildren
         ">
       <div>
-      <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/">Getting Started</a>
+      <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/overview/">Overview</a><i class="fas fa-angle-right fa-lg category-icon"></i>
+
+      </div>
+        <ul>
+      <li data-nav-id="/overview/overview/" class="dd-item">
+        <div>
+          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/overview/overview/">
+            Overview
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/prereq/" class="dd-item parent haschildren
+        ">
+      <div>
+      <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/prereq/">Prerequiste</a>
             <i class="fas fa-angle-down fa-lg category-icon"></i>
 
       </div>
         <ul>
-      <li data-nav-id="/getting-started/prerequisites/" class="dd-item active">
+      <li data-nav-id="/prereq/prerequisites/" class="dd-item active">
         <div>
-          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/prerequisites/">
+          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/prereq/prerequisites/">
             Prerequisites
           </a>
         </div>
     </li>
-      <li data-nav-id="/getting-started/installing-ansible/" class="dd-item">
+        </ul>
+    </li>
+    <li data-nav-id="/installation/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/">Installation</a><i class="fas fa-angle-right fa-lg category-icon"></i>
+
+      </div>
+        <ul>
+      <li data-nav-id="/installation/installing-ansible/" class="dd-item">
         <div>
-          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/installing-ansible/">
+          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/installing-ansible/">
             Installing Ansible
           </a>
         </div>
     </li>
-      <li data-nav-id="/getting-started/installing-operator/" class="dd-item">
+      <li data-nav-id="/installation/installing-operator/" class="dd-item">
         <div>
-          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/installing-operator/">
+          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/installing-operator/">
             Installing PostgreSQL Operator
           </a>
         </div>
     </li>
-      <li data-nav-id="/getting-started/uninstalling-operator/" class="dd-item">
+        </ul>
+    </li>
+    <li data-nav-id="/uninstall/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/uninstall/">Uninstall</a><i class="fas fa-angle-right fa-lg category-icon"></i>
+
+      </div>
+        <ul>
+      <li data-nav-id="/uninstall/uninstalling-operator/" class="dd-item">
         <div>
-          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/uninstalling-operator/">
+          <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/uninstall/uninstalling-operator/">
             Uninstalling PostgreSQL Operator
           </a>
         </div>
@@ -144,13 +178,16 @@
       <center>Navigation :
         <select onchange="javascript:location.href = this.value;">
           
-    <option value="/getting-started/" >
-   Getting Started</option> 
-      <option value="/getting-started/prerequisites/"  selected>- Prerequisites</option>
-      <option value="/getting-started/installing-ansible/" >- Installing Ansible</option>
-      <option value="/getting-started/installing-operator/" >- Installing PostgreSQL Operator</option>
-      <option value="/getting-started/uninstalling-operator/" >- Uninstalling PostgreSQL Operator</option>
+    <option value="/overview/" >
+   Overview</option>
+    <option value="/prereq/" >
+   Prerequiste</option> 
+      <option value="/prereq/prerequisites/"  selected>- Prerequisites</option>
   
+    <option value="/installation/" >
+   Installation</option>
+    <option value="/uninstall/" >
+   Uninstall</option>
 
 
 
@@ -169,7 +206,7 @@
             <i class="fa fa-info-circle"></i>
             
           </a>
-          <a class="github-link" href="https://github.com/CrunchyData/postgres-operator-playbooks/edit/master/hugo/content/getting-started/prerequisites.md" target="blank">
+          <a class="github-link" href="https://github.com/CrunchyData/postgres-operator-playbooks/edit/master/hugo/content/prereq/prerequisites.md" target="blank">
             <i class="fa fa-code-fork"></i>
             
           </a>
@@ -189,7 +226,7 @@
 
 
 
- <a href='https://crunchydata.github.io/postgres-operator-playbooks/test/'>Introduction</a> > <a href='https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/'>Getting Started</a> > Prerequisites
+ <a href='https://crunchydata.github.io/postgres-operator-playbooks/test/'>Introduction</a> > <a href='https://crunchydata.github.io/postgres-operator-playbooks/test/prereq/'>Prerequiste</a> > Prerequisites
 
  
 
@@ -404,6 +441,12 @@ should contain all configurable variables the playbooks offer.</p>
 </tr>
 
 <tr>
+<td><code>pgo_install_client</code></td>
+<td>true</td>
+<td>Configures the playbooks to install the <code>pgo</code> client if set to true.</td>
+</tr>
+
+<tr>
 <td><code>pgo_image_prefix</code></td>
 <td>crunchydata</td>
 <td>Configures the image prefix used when creating containers for the Crunchy PostgreSQL Operator (apiserver, operator, scheduler..etc).</td>
@@ -587,13 +630,37 @@ our namespace is named <code>pgo</code>), configure the following <code>inventor
 our namespaces are named <code>pgo</code>, <code>pgouser1</code> and <code>pgouser2</code>), configure the following <code>inventory</code> settings:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75af00">pgo_namespace</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;pgo&#39;</span>
 <span style="color:#75af00">target_namespaces</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;pgouser1,pgouser2&#39;</span></code></pre></div>
+<h2 id="deploying-multiple-operators">Deploying Multiple Operators</h2>
+
+<p>The 4.0 release of the Crunchy PostgreSQL Operator allows for multiple operator deployments in the same cluster.<br />
+To install the Crunchy PostgreSQL Operator to multiple namespaces, it&rsquo;s recommended to have an <code>inventory</code> file
+for each deployment of the operator.</p>
+
+<p>For each operator deployment the following inventory variables should be configured uniquely for each install.</p>
+
+<p>For example, operator could be deployed twice by changing the <code>pgo_namespace</code> and <code>target_namespaces</code> for those
+deployments:</p>
+
+<p>Inventory A would deploy operator to the <code>pgo</code> namespace and it would manage the <code>pgo</code> target namespace.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-init" data-lang="init"># Inventory A
+pgo_namespace=&#39;pgo&#39;
+target_namespaces=&#39;pgo&#39;
+...</code></pre></div>
+<p>Inventory B would deploy operator to the <code>pgo2</code> namespace and it would manage the <code>pgo2</code> and <code>pgo3</code> target namespaces.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-init" data-lang="init"># Inventory B
+pgo_namespace=&#39;pgo2&#39;
+target_namespaces=&#39;pgo2,pgo3&#39;
+...</code></pre></div>
+<p>Each install of the operator will create a corresponding directory in <code>$HOME/.pgo/&lt;PGO NAMESPACE&gt;</code> which will contain
+the TLS and <code>pgouser</code> client credentials.</p>
+
 
 
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/" title="Getting Started"> <i class="fa fa-chevron-left"></i><label>Getting Started</label></a>
-    <a class="nav nav-next" href="https://crunchydata.github.io/postgres-operator-playbooks/test/getting-started/installing-ansible/" title="Installing Ansible" style="margin-right: 0px;"><label>Installing Ansible</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="https://crunchydata.github.io/postgres-operator-playbooks/test/prereq/" title="Prerequiste"> <i class="fa fa-chevron-left"></i><label>Prerequiste</label></a>
+    <a class="nav nav-next" href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/" title="Installation" style="margin-right: 0px;"><label>Installation</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>

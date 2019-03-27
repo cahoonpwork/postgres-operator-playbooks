@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
     <title>Crunchy Data PostgreSQL Operator Playbooks</title>
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.53" />
-<title>404 Page not found :: Crunchy Data PostgreSQL Operator Playbooks</title>
+<title>Installing Ansible :: Crunchy Data PostgreSQL Operator Playbooks</title>
 <link rel="shortcut icon" href="https://crunchydata.github.io/postgres-operator-playbooks/test/favicon.png" type="image/x-icon" />
 <link href="https://crunchydata.github.io/postgres-operator-playbooks/test/css/nucleus.css" rel="stylesheet">
 <link href="https://crunchydata.github.io/postgres-operator-playbooks/test/theme-flex/style.css" rel="stylesheet">
@@ -28,7 +29,7 @@
 
     
   </head>
-  <body data-url="">
+  <body data-url="/installation/installing-ansible/">
     
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
   
@@ -119,14 +120,15 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/installation/" class="dd-item haschildren
+    <li data-nav-id="/installation/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/">Installation</a><i class="fas fa-angle-right fa-lg category-icon"></i>
+      <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/">Installation</a>
+            <i class="fas fa-angle-down fa-lg category-icon"></i>
 
       </div>
         <ul>
-      <li data-nav-id="/installation/installing-ansible/" class="dd-item">
+      <li data-nav-id="/installation/installing-ansible/" class="dd-item active">
         <div>
           <a href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/installing-ansible/">
             Installing Ansible
@@ -181,7 +183,10 @@
     <option value="/prereq/" >
    Prerequiste</option>
     <option value="/installation/" >
-   Installation</option>
+   Installation</option> 
+      <option value="/installation/installing-ansible/"  selected>- Installing Ansible</option>
+      <option value="/installation/installing-operator/" >- Installing PostgreSQL Operator</option>
+  
     <option value="/uninstall/" >
    Uninstall</option>
 
@@ -193,7 +198,20 @@
 
     
       <div id="top-bar">
-        <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+        
+          
+          
+          
+        <div id="top-github-link">
+          <a class="github-link" href="https://crunchydata.github.io/postgres-operator-playbooks/test/contributing/" target="blank">
+            <i class="fa fa-info-circle"></i>
+            
+          </a>
+          <a class="github-link" href="https://github.com/CrunchyData/postgres-operator-playbooks/edit/master/hugo/content/installation/installing-ansible.md" target="blank">
+            <i class="fa fa-code-fork"></i>
+            
+          </a>
+        </div><div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
             <span id="sidebar-toggle-span">
               <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
                 <i class="fa fa-bars"></i>
@@ -203,7 +221,17 @@
             <span class="links">
             
 
- 404 Page not found
+
+
+
+
+
+
+ <a href='https://crunchydata.github.io/postgres-operator-playbooks/test/'>Introduction</a> > <a href='https://crunchydata.github.io/postgres-operator-playbooks/test/installation/'>Installation</a> > Installing Ansible
+
+ 
+
+ 
 
 
             </span>
@@ -215,22 +243,88 @@
     
     <div id="body-inner">
 
-    <h1>404 Page not found</h1>
+    <h1>Installing Ansible</h1>
+
+    
 
     
     
-  <p><img src="https://crunchydata.github.io/postgres-operator-playbooks/test/images/crunchy_standing_gray.png" style="width:7rem"></img></p>
-	<h1></h1>
-	<p>
-	</p>
-	<p></p>
-	<p></p>
-	<p><a href="https://crunchydata.github.io/postgres-operator-playbooks/test/"></a></p>
+
+<h2 id="installing-ansible-on-linux-or-macos">Installing Ansible on Linux or MacOS</h2>
+
+<p>To install Ansible on Linux or MacOS, <a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-the-control-machine" target="_blank">see the official documentation</a>
+ provided by Ansible.</p>
+
+<h2 id="installing-ansible-on-windows-cygwin">Installing Ansible on Windows (Cygwin)</h2>
+
+<p>The following instructions will install <a href="https://www.cygwin.com/" target="_blank">Cygwin</a> with Ansible.</p>
+
+<p>First the Cygwin <a href="http://cygwin.com/setup-x86_64.exe" target="_blank">installer must be downloaded</a>.  This
+should only be downloaded and not executed.</p>
+
+<p>Next, open a Windows Command Prompt using the following:</p>
+
+<ul>
+<li><code>[WINDOWS KEY] + R</code></li>
+<li>Type into the run prompt <code>cmd</code> and press enter</li>
+</ul>
+
+<p>With the Windows Command Prompt open, paste the following command into the prompt:</p>
+
+<pre><code>%HOMEPATH%\Downloads\setup-x86_64.exe ^
+--site http://cygwin.mirror.constant.com ^
+--quiet-mode ^
+--arch x86 ^
+--verbose ^
+--packages binutils,curl,cygwin32-gcc-g++,gcc-g++,git,gmp,libffi-devel,libgmp-devel,libsodium-devel,make,nano,openssh,libcrypt-devel,openssl,openssl-devel,python36,python36-pip,python36-setuptools,python36-devel,python36-crypto,python3-cryptography,vim,unzip,wget
+</code></pre>
+
+<h3 id="setting-up-cygwin-environment">Setting Up Cygwin Environment</h3>
+
+<p>Once the installation is complete navigate to the desktop and double click the Cygwin shortcut icon.</p>
+
+<p>After launching the Cygwin terminal we can tune <code>~/.bashrc</code> by running the following commands:</p>
+
+<pre><code>cat &lt;&lt;EOF &gt;&gt; ~/.bashrc
+PS1='\[\e[32m\]\u@\h:\W&gt; \[\e[0m\]'
+TERM=cygwin
+export PS1
+export TERM
+EOF
+</code></pre>
+
+<p>Apply those changes to the current session by running:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">source</span> ~/.bashrc</code></pre></div>
+<h3 id="install-ansible-in-cygwin">Install Ansible in Cygwin</h3>
+
+<p>Next, run the following command to install Ansible (this will take some time):</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip3.6 install ansible</code></pre></div>
+<h3 id="install-kubectl-in-cygwin">Install <code>kubectl</code> in Cygwin</h3>
+
+<p>If the Crunchy PostgreSQL Operator will be deployed to a Kubernetes cluster, we
+will require <code>kubectl</code></p>
+
+<p>To download <code>kubectl</code> run the following commands:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/windows/amd64/kubectl.exe
+mv ./kubectl.exe /usr/local/bin/kubectl
+chmod +x /usr/local/bin/kubectl</code></pre></div>
+<h3 id="install-oc-in-cygwin">Install <code>oc</code> in Cygwin</h3>
+
+<p>If the Crunchy PostgreSQL Operator will be deployed to a Kubernetes cluster, we
+will require <code>oc</code></p>
+
+<p>To download <code>oc</code> run the following commands:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -LO https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-windows.zip
+unzip openshift-origin-client-tools-v3.11.0-0cbc58b-windows.zip
+mv ./oc.exe /usr/local/bin/oc
+chmod +x /usr/local/bin/oc</code></pre></div>
+
 
     
         <div class="chevrons">
     <div id="navigation">
-</div>
+<a class="nav nav-prev" href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/" title="Installation"> <i class="fa fa-chevron-left"></i><label>Installation</label></a>
+    <a class="nav nav-next" href="https://crunchydata.github.io/postgres-operator-playbooks/test/installation/installing-operator/" title="Installing PostgreSQL Operator" style="margin-right: 0px;"><label>Installing PostgreSQL Operator</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
