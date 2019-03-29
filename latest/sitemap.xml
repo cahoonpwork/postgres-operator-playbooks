@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/latest/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/latest/prereq/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/latest/installation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/latest/uninstall/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/latest/prereq/prerequisites/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/latest/installation/installing-ansible/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/latest/installation/installing-metrics/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/latest/installation/installing-operator/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/latest/uninstall/uninstalling-metrics/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/latest/uninstall/uninstalling-operator/</loc>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/latest/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://crunchydata.github.io/postgres-operator-playbooks/latest/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
