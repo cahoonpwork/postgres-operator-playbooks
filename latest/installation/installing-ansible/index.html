@@ -257,69 +257,22 @@
 <p>To install Ansible on Linux or MacOS, <a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-the-control-machine" target="_blank">see the official documentation</a>
  provided by Ansible.</p>
 
-<h2 id="installing-ansible-on-windows-cygwin">Installing Ansible on Windows (Cygwin)</h2>
+<h2 id="installing-ansible-on-windows-ubuntu-subsystem">Installing Ansible on Windows (Ubuntu Subsystem)</h2>
 
-<p>The following instructions will install <a href="https://www.cygwin.com/" target="_blank">Cygwin</a> with Ansible.</p>
+<h2 id="install-google-cloud-sdk-optional">Install Google Cloud SDK (Optional)</h2>
 
-<p>First the Cygwin <a href="http://cygwin.com/setup-x86_64.exe" target="_blank">installer must be downloaded</a>.  This
-should only be downloaded and not executed.</p>
+<p>If Crunchy PostgreSQL Operator is going to be installed in a Google Kubernetes
+Environment the Google Cloud SDK is required.</p>
 
-<p>Next, open a Windows Command Prompt using the following:</p>
+<p>To install the Google Cloud SDK on Linux or MacOS, see the
+<a href="https://cloud.google.com/sdk/install" target="_blank">official Google Cloud documentation</a>.</p>
 
-<ul>
-<li><code>[WINDOWS KEY] + R</code></li>
-<li>Type into the run prompt <code>cmd</code> and press enter</li>
-</ul>
-
-<p>With the Windows Command Prompt open, paste the following command into the prompt:</p>
-
-<pre><code>%HOMEPATH%\Downloads\setup-x86_64.exe ^
---site http://cygwin.mirror.constant.com ^
---quiet-mode ^
---arch x86 ^
---verbose ^
---packages binutils,curl,cygwin32-gcc-g++,gcc-g++,git,gmp,libffi-devel,libgmp-devel,libsodium-devel,make,nano,openssh,libcrypt-devel,openssl,openssl-devel,python36,python36-pip,python36-setuptools,python36-devel,python36-crypto,python36-cryptography,vim,unzip,wget
-</code></pre>
-
-<h3 id="setting-up-cygwin-environment">Setting Up Cygwin Environment</h3>
-
-<p>Once the installation is complete navigate to the desktop and double click the Cygwin shortcut icon.</p>
-
-<p>After launching the Cygwin terminal we can tune <code>~/.bashrc</code> by running the following commands:</p>
-
-<pre><code>cat &lt;&lt;EOF &gt;&gt; ~/.bashrc
-PS1='\[\e[32m\]\u@\h:\W&gt; \[\e[0m\]'
-TERM=cygwin
-export PS1
-export TERM
-EOF
-</code></pre>
-
-<p>Apply those changes to the current session by running:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">source</span> ~/.bashrc</code></pre></div>
-<h3 id="install-ansible-in-cygwin">Install Ansible in Cygwin</h3>
-
-<p>Next, run the following command to install Ansible (this will take some time):</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip3.6 install ansible</code></pre></div>
-<h3 id="install-kubectl-in-cygwin">Install <code>kubectl</code> in Cygwin</h3>
-
-<p>If the Crunchy PostgreSQL Operator will be deployed to a Kubernetes cluster, we
-will require <code>kubectl</code></p>
-
-<p>To download <code>kubectl</code> run the following commands:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/windows/amd64/kubectl.exe
-mv ./kubectl.exe /usr/local/bin/kubectl
-chmod +x /usr/local/bin/kubectl</code></pre></div>
-<h3 id="install-oc-in-cygwin">Install <code>oc</code> in Cygwin</h3>
-
-<p>If the Crunchy PostgreSQL Operator will be deployed to an OpenShift cluster, we
-will require <code>oc</code></p>
-
-<p>To download <code>oc</code> run the following commands:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -LO https://github.com/openshift/origin/releases/download/v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-windows.zip
-unzip openshift-origin-client-tools-v3.11.0-0cbc58b-windows.zip
-mv ./oc.exe /usr/local/bin/oc
-chmod +x /usr/local/bin/oc</code></pre></div>
+<p>When installing the Google Cloud SDK on the Windows Ubuntu Subsystem, run the following
+commands to install:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://sdk.cloud.google.com --output-document<span style="color:#f92672">=</span>/tmp/install-gsdk.sh
+<span style="color:#75715e"># Review the /tmp/install-gsdk.sh prior to running</span>
+chmod +x /tmp/install-gsdk.sh
+/tmp/install-gsdk.sh</code></pre></div>
 
 
     

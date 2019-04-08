@@ -17,7 +17,8 @@
       
       <guid>https://crunchydata.github.io/postgres-operator-playbooks/latest/prereq/prerequisites/</guid>
       <description>Prerequisites The following is required prior to installing PostgreSQL Operator using Ansible:
- Ansible 2.4.6+ Kubernetes v1.11+ or OpenShift v3.09+ kubectl or oc configured to communicate with Kubernetes postgres-operator-playbooks source code checked out for the target version  Configuring the Inventory File The inventory file included with the PostgreSQL Operator Playbooks allows installers to configure how the operator will function when deployed into Kubernetes. This file should contain all configurable variables the playbooks offer.</description>
+ Ansible 2.4.6+ Kubernetes v1.11+ or OpenShift v3.09+ kubectl or oc configured to communicate with Kubernetes Cluster Admin privileges in Kubernetes/OpenShift postgres-operator-playbooks source code checked out for the target version  Permissions The installation of the Crunchy PostgreSQL Operator requires elevated privileges.
+It is required that the playbooks are run as a cluster-admin to ensure the playbooks can install:</description>
     </item>
     
   </channel>

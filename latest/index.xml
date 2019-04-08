@@ -17,7 +17,8 @@
       
       <guid>https://crunchydata.github.io/postgres-operator-playbooks/latest/prereq/prerequisites/</guid>
       <description>Prerequisites The following is required prior to installing PostgreSQL Operator using Ansible:
- Ansible 2.4.6+ Kubernetes v1.11+ or OpenShift v3.09+ kubectl or oc configured to communicate with Kubernetes postgres-operator-playbooks source code checked out for the target version  Configuring the Inventory File The inventory file included with the PostgreSQL Operator Playbooks allows installers to configure how the operator will function when deployed into Kubernetes. This file should contain all configurable variables the playbooks offer.</description>
+ Ansible 2.4.6+ Kubernetes v1.11+ or OpenShift v3.09+ kubectl or oc configured to communicate with Kubernetes Cluster Admin privileges in Kubernetes/OpenShift postgres-operator-playbooks source code checked out for the target version  Permissions The installation of the Crunchy PostgreSQL Operator requires elevated privileges.
+It is required that the playbooks are run as a cluster-admin to ensure the playbooks can install:</description>
     </item>
     
     <item>
@@ -27,10 +28,9 @@
       
       <guid>https://crunchydata.github.io/postgres-operator-playbooks/latest/installation/installing-ansible/</guid>
       <description>Installing Ansible on Linux or MacOS To install Ansible on Linux or MacOS, see the official documentation provided by Ansible.
-Installing Ansible on Windows (Cygwin) The following instructions will install Cygwin with Ansible.
-First the Cygwin installer must be downloaded. This should only be downloaded and not executed.
-Next, open a Windows Command Prompt using the following:
- [WINDOWS KEY] + R Type into the run prompt cmd and press enter  With the Windows Command Prompt open, paste the following command into the prompt:</description>
+Installing Ansible on Windows (Ubuntu Subsystem) Install Google Cloud SDK (Optional) If Crunchy PostgreSQL Operator is going to be installed in a Google Kubernetes Environment the Google Cloud SDK is required.
+To install the Google Cloud SDK on Linux or MacOS, see the official Google Cloud documentation.
+When installing the Google Cloud SDK on the Windows Ubuntu Subsystem, run the following commands to install:</description>
     </item>
     
     <item>

@@ -258,7 +258,20 @@
 <li>Ansible 2.4.6+</li>
 <li>Kubernetes v1.11+ or OpenShift v3.09+</li>
 <li><code>kubectl</code> or <code>oc</code> configured to communicate with Kubernetes</li>
+<li>Cluster Admin privileges in Kubernetes/OpenShift</li>
 <li><code>postgres-operator-playbooks</code> source code checked out for the target version</li>
+</ul>
+
+<h2 id="permissions">Permissions</h2>
+
+<p>The installation of the Crunchy PostgreSQL Operator requires elevated privileges.<br />
+It is required that the playbooks are run as a <code>cluster-admin</code> to ensure the playbooks
+can install:</p>
+
+<ul>
+<li>Custom Resource Definitions</li>
+<li>Cluster RBAC</li>
+<li>Create required namespaces</li>
 </ul>
 
 <h2 id="configuring-the-inventory-file">Configuring the Inventory File</h2>
@@ -508,6 +521,18 @@ should contain all configurable variables the playbooks offer.</p>
 </tr>
 
 <tr>
+<td><code>pgo_admin_username</code></td>
+<td>admin</td>
+<td>Configures the pgo administrator username.</td>
+</tr>
+
+<tr>
+<td><code>pgo_admin_password</code></td>
+<td></td>
+<td>Configures the pgo administrator password.</td>
+</tr>
+
+<tr>
 <td><code>pgo_client_install</code></td>
 <td>true</td>
 <td>Configures the playbooks to install the <code>pgo</code> client if set to true.</td>
@@ -532,21 +557,9 @@ should contain all configurable variables the playbooks offer.</p>
 </tr>
 
 <tr>
-<td><code>pgo_password</code></td>
-<td></td>
-<td>Configures the pgo administrator password.</td>
-</tr>
-
-<tr>
 <td><code>pgo_tls_no_verify</code></td>
 <td></td>
 <td>Set to configure Operator to verify TLS certificates.</td>
-</tr>
-
-<tr>
-<td><code>pgo_username</code></td>
-<td>admin</td>
-<td>Configures the pgo administrator username.</td>
 </tr>
 
 <tr>
@@ -647,6 +660,10 @@ should contain all configurable variables the playbooks offer.</p>
 </tbody>
 </table>
 
+<div class="notices tip" ><p>To retrieve the <code>kubernetes_context</code> value for Kubernetes installs, run the following command:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl config current-context</code></pre></div></div>
+
+
 <h2 id="storage">Storage</h2>
 
 <p>Kubernetes and OpenShift offer support for a variety of storage types.  The Crunchy
@@ -679,7 +696,7 @@ of storage classes.</p>
 
 <h4 id="generic-storage-class">Generic Storage Class</h4>
 
-<p>To setup storage1 to use a the storage class <code>fast</code></p>
+<p>To setup storage1 to use the storage class <code>fast</code></p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#75af00">storage1_access_mode</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;ReadWriteOnce&#39;</span>
 <span style="color:#75af00">storage1_size</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;10G&#39;</span>
 <span style="color:#75af00">storage1_type</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;dynamic&#39;</span>

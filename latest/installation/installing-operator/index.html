@@ -275,15 +275,12 @@ the PostgreSQL Operator.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ansible-playbook -i /path/to/inventory main.yml --tags<span style="color:#f92672">=</span>install --ask-become-pass</code></pre></div>
 <h2 id="installing-on-windows">Installing on Windows</h2>
 
-<p>On a Windows host with a Cygwin terminal we can run the following commands to install
+<p>On a Windows host with an Ubuntu subsystem we can run the following commands to install
 the PostgreSQL Operator.</p>
 
-<p>First, run the following command to setup the <code>ansible_python_interpreter</code> for
-Cygwin:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -i <span style="color:#d88200">&#39;s~/usr/bin/env python~/usr/bin/env.exe python3.6~g&#39;</span> /path/to/inventory</code></pre></div>
 <p>The following command should be run from the directory where the
 <code>postgres-operator-playbooks</code> project is located:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ansible-playbook -i /path/to/inventory main.yml --tags<span style="color:#f92672">=</span>install</code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ansible-playbook -i /path/to/inventory main.yml --tags<span style="color:#f92672">=</span>install --ask-become-pass</code></pre></div>
 <h2 id="verifying-the-installation">Verifying the Installation</h2>
 
 <p>This may take a few minutes to deploy.  To check the status of the deployment run
@@ -300,35 +297,16 @@ oc get pods -n &lt;NAMESPACE_NAME&gt;</code></pre></div>
 <p>After the Crunchy PostgreSQL Operator has successfully been installed we will need
 to configure local environment variables before using the <code>pgo</code> client.</p>
 
-<h3 id="linux-and-macos">Linux and MacOS</h3>
-
-<p>To configure the environment variables used by <code>pgo</code> on a Linux or MacOS host,
-run the following command:</p>
+<p>To configure the environment variables used by <code>pgo</code> run the following command:</p>
 
 <p>Note: <code>&lt;PGO_NAMESPACE&gt;</code> should be replaced with the namespace the Crunchy PostgreSQL
 Operator was deployed to.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat <span style="color:#d88200">&lt;&lt;EOF &gt;&gt; ~/.bashrc
-</span><span style="color:#d88200">export PGOUSER=&#34;~/.pgo/&lt;PGO_NAMESPACE&gt;/pgouser&#34;
-</span><span style="color:#d88200">export PGO_CA_CERT=&#34;~/.pgo/&lt;PGO_NAMESPACE&gt;/client.crt&#34;
-</span><span style="color:#d88200">export PGO_CLIENT_CERT=&#34;~/.pgo/&lt;PGO_NAMESPACE&gt;/client.crt&#34;
-</span><span style="color:#d88200">export PGO_CLIENT_KEY=&#34;~/.pgo/&lt;PGO_NAMESPACE&gt;/client.pem&#34;
-</span><span style="color:#d88200">export PGO_APISERVER_URL=https://127.0.0.1:8443
-</span><span style="color:#d88200">EOF</span></code></pre></div>
-<p>Apply those changes to the current session by running:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">source</span> ~/.bashrc</code></pre></div>
-<h3 id="windows-cygwin">Windows (Cygwin)</h3>
-
-<p>To configure the environment variables used by <code>pgo</code> on a Windows (Cygwin) host,
-run the following command:</p>
-
-<p>Note: <code>&lt;PGO_NAMESPACE&gt;</code> should be replaced with the namespace the Crunchy PostgreSQL
-Operator was deployed to.</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat <span style="color:#d88200">&lt;&lt;EOF &gt;&gt; ~/.bashrc
-</span><span style="color:#d88200">export PGOUSER=&#34;$(cygpath -w ~/.pgo/&lt;PGO_NAMESPACE&gt;/pgouser)&#34;
-</span><span style="color:#d88200">export PGO_CA_CERT=&#34;$(cygpath -w ~/.pgo/&lt;PGO_NAMESPACE&gt;/client.crt)&#34;
-</span><span style="color:#d88200">export PGO_CLIENT_CERT=&#34;$(cygpath -w ~/.pgo/&lt;PGO_NAMESPACE&gt;/client.crt)&#34;
-</span><span style="color:#d88200">export PGO_CLIENT_KEY=&#34;$(cygpath -w ~/.pgo/&lt;PGO_NAMESPACE&gt;/client.pem)&#34;
-</span><span style="color:#d88200">export PGO_APISERVER_URL=&#34;https://127.0.0.1:8443&#34;
+</span><span style="color:#d88200">export PGOUSER=&#34;${HOME?}/.pgo/&lt;PGO_NAMESPACE&gt;/pgouser&#34;
+</span><span style="color:#d88200">export PGO_CA_CERT=&#34;${HOME?}/.pgo/&lt;PGO_NAMESPACE&gt;/client.crt&#34;
+</span><span style="color:#d88200">export PGO_CLIENT_CERT=&#34;${HOME?}/.pgo/&lt;PGO_NAMESPACE&gt;/client.crt&#34;
+</span><span style="color:#d88200">export PGO_CLIENT_KEY=&#34;${HOME?}/.pgo/&lt;PGO_NAMESPACE&gt;/client.pem&#34;
+</span><span style="color:#d88200">export PGO_APISERVER_URL=&#39;https://127.0.0.1:8443&#39;
 </span><span style="color:#d88200">EOF</span></code></pre></div>
 <p>Apply those changes to the current session by running:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">source</span> ~/.bashrc</code></pre></div>
