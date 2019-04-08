@@ -275,12 +275,9 @@ the Metrics stack:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ansible-playbook -i /path/to/inventory main.yml --tags<span style="color:#f92672">=</span>install-metrics</code></pre></div>
 <h2 id="installing-on-windows">Installing on Windows</h2>
 
-<p>On a Windows host with a Cygwin terminal we can run the following commands to install
+<p>On a Windows host with the Ubuntu subsystem we can run the following commands to install
 the Metrics stack:</p>
 
-<p>First, run the following command to setup the <code>ansible_python_interpreter</code> for
-Cygwin:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -i <span style="color:#d88200">&#39;s~/usr/bin/env python~/usr/bin/env.exe python3.6~g&#39;</span> /path/to/inventory</code></pre></div>
 <p>The following command should be run from the directory where the
 <code>postgres-operator-playbooks</code> project is located:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ansible-playbook -i /path/to/inventory main.yml --tags<span style="color:#f92672">=</span>install-metrics</code></pre></div>

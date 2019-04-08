@@ -252,14 +252,37 @@
 
 <h1 id="prerequisites">Prerequisites</h1>
 
-<p>The following is required prior to installing PostgreSQL Operator using Ansible:</p>
+<p>The following is required prior to installing Crunchy PostgreSQL Operator using Ansible:</p>
 
 <ul>
+<li><a href="https://github.com/CrunchyData/postgres-operator-playbooks" target="_blank">postgres-operator-playbooks</a> source code for the target version</li>
 <li>Ansible 2.4.6+</li>
-<li>Kubernetes v1.11+ or OpenShift v3.09+</li>
-<li><code>kubectl</code> or <code>oc</code> configured to communicate with Kubernetes</li>
-<li>Cluster Admin privileges in Kubernetes/OpenShift</li>
-<li><code>postgres-operator-playbooks</code> source code checked out for the target version</li>
+</ul>
+
+<h2 id="kubernetes-installs">Kubernetes Installs</h2>
+
+<ul>
+<li>Kubernetes v1.11+</li>
+<li>Cluster admin privileges in Kubernetes</li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/" target="_blank">kubectl</a> configured to communicate with Kubernetes</li>
+</ul>
+
+<h2 id="openshift-installs">OpenShift Installs</h2>
+
+<ul>
+<li>OpenShift v3.09+</li>
+<li>Cluster admin privileges in OpenShift</li>
+<li><a href="https://docs.openshift.com/container-platform/3.11/cli_reference/get_started_cli.html" target="_blank">oc</a> configured to communicate with OpenShift</li>
+</ul>
+
+<h2 id="installing-from-a-windows-host">Installing from a Windows Host</h2>
+
+<p>If the Crunchy PostgreSQL Operator is being installed from a Windows host the following
+are required:</p>
+
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" target="_blank">Windows Subsystem for Linux (WSL)</a></li>
+<li><a href="https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6" target="_blank">Ubuntu for Windows</a></li>
 </ul>
 
 <h2 id="permissions">Permissions</h2>

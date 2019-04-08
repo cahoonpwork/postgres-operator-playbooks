@@ -16,8 +16,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://crunchydata.github.io/postgres-operator-playbooks/latest/installation/installing-ansible/</guid>
-      <description>Installing Ansible on Linux or MacOS To install Ansible on Linux or MacOS, see the official documentation provided by Ansible.
-Installing Ansible on Windows (Ubuntu Subsystem) Install Google Cloud SDK (Optional) If Crunchy PostgreSQL Operator is going to be installed in a Google Kubernetes Environment the Google Cloud SDK is required.
+      <description>Installing Ansible on Linux, MacOS or Windows Ubuntu Subsystem To install Ansible on Linux or MacOS, see the official documentation provided by Ansible.
+Install Google Cloud SDK (Optional) If Crunchy PostgreSQL Operator is going to be installed in a Google Kubernetes Environment the Google Cloud SDK is required.
 To install the Google Cloud SDK on Linux or MacOS, see the official Google Cloud documentation.
 When installing the Google Cloud SDK on the Windows Ubuntu Subsystem, run the following commands to install:</description>
     </item>
